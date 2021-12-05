@@ -1,7 +1,8 @@
 {
     "Prod": "DEBUG",
     "Mnemonic": [
-        "string", "ss"
+        "dude", "ss"
     ],
-    "Solana-PrivateKey": "2ZpJvWJcxbCnmTxF1cTXwPNRPqk24ZNMiBVyCLNik85tWzcDG3a5ZfNXmX6DQKqA4d82FqbMEBHeBTkS19ZPLPRh"
+    "Solana-PrivateKey": "2ZpJvWJcxbCnmTxF1cTXwPNRPqk24ZNMiBVyCLNik85tWzcDG3a5ZfNXmX6DQKqA4d82FqbMEBHeBTkS19ZPLPRh",
+    "BlockFrost-API-Key": "testnetgLY7BYz2YEMvjOXBCipx0t5dLZTevvMD"
 }

@@ -6,8 +6,6 @@ import (
 	"runtime"
 )
 
-const i = 100
-
 func RunCli(args string) {
 	switch runtime.GOOS {
 	case "windows":
@@ -20,5 +18,7 @@ func RunCli(args string) {
 
 		fmt.Println(string(cmd))
 		break
+	default:
+		fmt.Println("This Operating System is not supported!")
 	}
 }

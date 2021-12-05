@@ -5,7 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 
+	"github.com/blockfrost/blockfrost-go"
 	"github.com/dylanseto/Desocial-Currator-Node/src/Cardano"
 	"github.com/gagliardetto/solana-go"
 	"github.com/gagliardetto/solana-go/rpc"
@@ -18,6 +20,22 @@ func loadConf() error {
 	config = Configuration{}
 	err := json.Unmarshal([]byte(file), &config)
 	return err
+}
+
+func connectToBlockFrost() error {
+	apiOptions := blockfrost.APIClientOptions{
+		Server:    blockfrost.CardanoTestNet,
+		ProjectID: config.BlockFrostAPIKey,
+	}
+	api := blockfrost.NewAPIClient(apiOptions)
+
+	_, err := api.Info(context.TODO())
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
+
+	return nil
 }
 
 func main() {
@@ -58,6 +76,14 @@ func main() {
 	}
 
 	fmt.Print("[Event] Connecting To Cardano (Blockfrost)...")
+
+	err = connectToBlockFrost()
+
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Done!")
+	}
 
 	Cardano.RunCli("help")
 }

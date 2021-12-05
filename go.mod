@@ -3,6 +3,7 @@ module github.com/dylanseto/Desocial-Currator-Node
 go 1.17
 
 require github.com/dylanseto/Desocial-Currator-Node/src/Cardano v0.0.0
+
 replace github.com/dylanseto/Desocial-Currator-Node/src/Cardano v0.0.0 => ./src/cardano
 
 require (
@@ -11,6 +12,7 @@ require (
 	github.com/andres-erbsen/clock v0.0.0-20160526145045-9e14626cd129 // indirect
 	github.com/aybabtme/rgbterm v0.0.0-20170906152045-cc83f3b3ce59 // indirect
 	github.com/blendle/zapdriver v1.3.1 // indirect
+	github.com/blockfrost/blockfrost-go v0.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dfuse-io/logging v0.0.0-20210109005628-b97a57253f70 // indirect
 	github.com/fatih/color v1.7.0 // indirect
@@ -18,6 +20,8 @@ require (
 	github.com/gagliardetto/solana-go v1.0.2 // indirect
 	github.com/gagliardetto/treeout v0.1.4 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
+	github.com/hashicorp/go-cleanhttp v0.5.1 // indirect
+	github.com/hashicorp/go-retryablehttp v0.7.0 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/logrusorgru/aurora v2.0.3+incompatible // indirect
