@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
+	"github.com/dylanseto/Desocial-Currator-Node/src/Cardano"
 	"github.com/gagliardetto/solana-go"
 	"github.com/gagliardetto/solana-go/rpc"
 )
@@ -58,5 +59,5 @@ func main() {
 
 	fmt.Print("[Event] Connecting To Cardano (Blockfrost)...")
 
-	cardano.runCli()
+	Cardano.RunCli("help")
 }

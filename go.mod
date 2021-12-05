@@ -1,6 +1,9 @@
-module github.com/Desocial-Currator-Node
+module github.com/dylanseto/Desocial-Currator-Node
 
 go 1.17
+
+require github.com/dylanseto/Desocial-Currator-Node/src/Cardano v0.0.0
+replace github.com/dylanseto/Desocial-Currator-Node/src/Cardano v0.0.0 => ./src/cardano
 
 require (
 	contrib.go.opencensus.io/exporter/stackdriver v0.13.4 // indirect

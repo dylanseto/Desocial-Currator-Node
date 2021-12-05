@@ -1,3 +1,3 @@
-module github.com/Desocial-Currator-Node/src/cardano
+module Cardano
 
 go 1.17
