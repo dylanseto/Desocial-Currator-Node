@@ -9,8 +9,6 @@ import (
 
 	"github.com/blockfrost/blockfrost-go"
 	"github.com/dylanseto/Desocial-Currator-Node/src/Cardano"
-	"github.com/gagliardetto/solana-go"
-	"github.com/gagliardetto/solana-go/rpc"
 )
 
 var config Configuration
@@ -22,7 +20,7 @@ func loadConf() error {
 	return err
 }
 
-func connectToBlockFrost() error {
+func connectToBlockFrost() (blockfrost.APIClient, error) {
 	apiOptions := blockfrost.APIClientOptions{
 		Server:    blockfrost.CardanoTestNet,
 		ProjectID: config.BlockFrostAPIKey,
@@ -32,14 +30,22 @@ func connectToBlockFrost() error {
 	_, err := api.Info(context.TODO())
 	if err != nil {
 		log.Fatal(err)
-		return err
+		return nil, err
 	}
 
-	return nil
+	return api, nil
+}
+
+/*
+Check if the node is registered
+*/
+func isRegistered(apiClient blockfrost.APIClient) bool {
+	apiClient.AssetsByPolicy(context.Background(), "")
+	return true
 }
 
 func main() {
-	fmt.Print("[Event] Loading Configuration File...")
+	/* fmt.Print("[Event] Loading Configuration File...")
 	err := loadConf()
 	if err != nil {
 		fmt.Println(err)
@@ -77,7 +83,7 @@ func main() {
 
 	fmt.Print("[Event] Connecting To Cardano (Blockfrost)...")
 
-	err = connectToBlockFrost()
+	api, err := connectToBlockFrost()
 
 	if err != nil {
 		fmt.Println(err)
@@ -85,5 +91,9 @@ func main() {
 		fmt.Println("Done!")
 	}
 
-	Cardano.RunCli("help")
+	isRegistered(api) */
+
+	verificationKey, signingKey := Cardano.GenerateShelleyKey()
+	fmt.Println(verificationKey)
+	fmt.Println(signingKey.SigningKey)
 }
