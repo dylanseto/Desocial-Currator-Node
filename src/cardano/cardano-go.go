@@ -7,7 +7,7 @@ import (
 	"runtime"
 )
 
-func RunCli(args ...string) {
+func RunCli(args ...string) string {
 	switch runtime.GOOS {
 	case "windows":
 		mCmd := "./lib/cardano-cli"
@@ -21,14 +21,15 @@ func RunCli(args ...string) {
 
 		if err != nil {
 			fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
-			return
+			return stderr.String()
 		}
-		fmt.Println("Result: " + out.String())
 
-		break
+		return out.String()
 	default:
 		fmt.Println("This Operating System is not supported!")
 	}
+
+	return ""
 }
 
 func ShowHelp() {
